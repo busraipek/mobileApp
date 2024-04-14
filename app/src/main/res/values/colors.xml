@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="c_item_color">#FFFFFFFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- açık tema renkleri -->
+    <color name="background_color">#FDFFFC</color>
+    <color name="text_color">#C1292E</color>
+    <color name="button_color">#235789</color>
+    <color name="c_text_color">#FF000000</color>
+
+
+</resources>

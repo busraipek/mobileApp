@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="?android:windowBackground">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/Quote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal"
+        android:text="Quotes"
+        android:textSize="24sp"
+        android:textColor="@color/text_color"
+        android:fontFamily="@font/font_favorites"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnNextQuote" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/authorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?android:textColorPrimary"
+        android:fontFamily="@font/font_favorites"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="Author"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Quote" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNextQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Quote"
+        android:textSize="20sp"
+        android:textColor="@color/c_item_color"
+        app:backgroundTint="@color/button_color"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <ImageButton
+        android:id="@+id/btnFavorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/id_like"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toEndOf="@+id/btnNextQuote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/favorite_button_description"
+        android:scaleType="fitCenter" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

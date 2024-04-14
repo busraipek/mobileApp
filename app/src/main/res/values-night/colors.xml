@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- koyu tema renkleri -->
+    <color name="background_color">#303b58</color>
+    <color name="text_color">#e4e6ba</color>
+    <color name="button_color">#d6e9e3</color>
+    <color name="c_text_color">#FFFFFFFF</color>
+    <color name="c_item_color">#FF000000</color>
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp">
+
+        <RelativeLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_categories"
+                android:alpha="0.3"
+                app:tint="#77000000" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/bg_categories" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/love"
+            android:padding="10dp" />
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_right"
+                android:alpha="0.1"
+                app:tint="#77000000" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/bg_right"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/right"
+                app:tint="@color/button_color"
+                android:padding="15dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txvNameCategory"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="40dp"
+                android:text="Love"
+                android:textAllCaps="true"
+                android:textLocale="en"
+                android:gravity="bottom"
+                android:textColor="@color/c_text_color"
+                android:fontFamily="@font/font_category"
+                android:textSize="35sp"
+                android:paddingBottom="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/txvContent"
+                android:text="Quotes about love"
+                android:textSize="15sp"
+                android:textColor="@color/c_text_color"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

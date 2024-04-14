@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Normal Tema -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Diğer tema özellikleri -->
+    </style>
+
+    <!-- Karanlık Tema -->
+    <style name="DarkTheme" parent="Theme.AppCompat">
+        <!-- Diğer tema özellikleri -->
+
+        <!-- Diğer tema renkleri ve özellikleri -->
+    </style>
+
+</resources>

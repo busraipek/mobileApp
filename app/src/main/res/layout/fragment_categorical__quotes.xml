@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/button_color" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/background_color" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/Relativeve1"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_categories"
+            android:alpha="0.3"
+            app:tint="#77000000" />
+
+        <ImageView
+            android:id="@+id/C_QuotesButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/bg_categories" />
+
+        <TextView
+            android:id="@+id/C_Quotestextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Örnek Metin"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textColor="@color/text_color"
+            android:fontFamily="@font/font_favorites" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Relativeve2"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/Relativeve1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_categories"
+            android:alpha="0.3"
+            app:tint="#77000000" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/bg_categories" />
+
+        <TextView
+            android:id="@+id/C_authortextview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Örnek Metin"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textColor="@color/text_color"
+            android:fontFamily="@font/font_favorites" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/C_imgCategory"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/love"
+        android:padding="10dp" />
+
+    <ImageButton
+        android:id="@+id/C_favoritebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/id_like"
+        android:background="@android:color/transparent"
+        android:layout_below="@id/Relativeve2"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="70dp"
+        android:contentDescription="@string/favorite_button_description"
+        android:scaleType="fitCenter" />
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:alpha="0.1"
+        app:tint="#77000000"
+        android:src="@drawable/bg_right"
+        android:layout_below="@id/Relativeve2"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="70dp"
+        android:scaleType="fitCenter" />
+
+    <ImageButton
+        android:id="@+id/backbutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/bg_right"
+        android:background="@android:color/transparent"
+        android:layout_below="@id/Relativeve2"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="1dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="69dp"
+        android:scaleType="fitCenter" />
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/left"
+        app:tint="@color/button_color"
+        android:padding="9dp"
+        android:layout_below="@id/Relativeve2"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="68dp"
+        android:scaleType="fitCenter"/>
+
+
+</RelativeLayout>
