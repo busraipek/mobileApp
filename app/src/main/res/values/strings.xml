@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Quotes App</string>
-    <string name="navigation_drawer_open">Aç</string>
-    <string name="navigation_drawer_close">Kapat</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favorite_button_description">Favoriye Ekle</string>
+    <string name="favorite_button_description">Add Favorites</string>
+    <string name="ornek_metin">text</string>
+    <string name="newq">New Quote</string>
+    <string name="theme">Dark Theme</string>
+    <string name="language">Language</string>
+    <string name="day">Quote of the Day</string>
+    <string name="favori">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="random">Random Quotes</string>
+    <string name="kategori">Category</string>
+    <string name="settings">Settings</string>
+
 </resources>

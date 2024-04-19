@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Özlü Sözler</string>
+    <string name="navigation_drawer_open">Aç</string>
+    <string name="navigation_drawer_close">Kapat</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite_button_description">Favorilere Ekle</string>
+    <string name="ornek_metin">Örnek Metin</string>
+    <string name="newq">Yeni Söz</string>
+    <string name="theme">Karanlık Tema</string>
+    <string name="language">Dil</string>
+    <string name="day">Günün Sözü</string>
+    <string name="favori">Favoriler</string>
+    <string name="profile">Profil</string>
+    <string name="random">Karışık</string>
+    <string name="kategori">Kategori</string>
+    <string name="settings">Ayarlar</string>
+
+
+</resources>

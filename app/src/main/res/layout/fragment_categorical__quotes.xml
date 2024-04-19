@@ -50,12 +50,12 @@
             android:id="@+id/C_Quotestextview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Örnek Metin"
             android:layout_centerInParent="true"
-            android:textSize="20sp"
+            android:fontFamily="@font/font_favorites"
             android:padding="10dp"
+            android:text="@string/ornek_metin"
             android:textColor="@color/text_color"
-            android:fontFamily="@font/font_favorites" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -84,12 +84,12 @@
             android:id="@+id/C_authortextview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Örnek Metin"
             android:layout_centerInParent="true"
-            android:textSize="20sp"
+            android:fontFamily="@font/font_favorites"
             android:padding="10dp"
+            android:text="@string/ornek_metin"
             android:textColor="@color/text_color"
-            android:fontFamily="@font/font_favorites" />
+            android:textSize="20sp" />
 
     </RelativeLayout>
 

@@ -2,27 +2,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_open"
-            android:title="Quote of the Day"
+            android:title="@string/day"
             android:icon="@drawable/id_open" />
         <item
             android:id="@+id/nav_profile"
-            android:title="Profile"
+            android:title="@string/profile"
             android:icon="@drawable/id_profil" />
         <item
             android:id="@+id/nav_favorites"
-            android:title="Favorites"
+            android:title="@string/favori"
             android:icon="@drawable/id_favorite" />
         <item
             android:id="@+id/nav_quotes"
-            android:title="Random Quotes"
+            android:title="@string/random"
             android:icon="@drawable/id_soz" />
         <item
             android:id="@+id/nav_category"
-            android:title="Category"
+            android:title="@string/kategori"
             android:icon="@drawable/category" />
         <item
             android:id="@+id/nav_settings"
-            android:title="Settings"
+            android:title="@string/settings"
             android:icon="@drawable/id_settings" />
     </group>
 </menu>

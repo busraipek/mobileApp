@@ -46,7 +46,7 @@
         android:id="@+id/btnNextQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next Quote"
+        android:text="@string/newq"
         android:textSize="20sp"
         android:textColor="@color/c_item_color"
         app:backgroundTint="@color/button_color"

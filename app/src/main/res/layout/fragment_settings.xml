@@ -10,16 +10,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Karanlık Tema "
+        android:text="@string/theme"
         android:textSize="24sp"
         android:thumbTint="@color/button_color"
         android:trackTint="@color/background_color" />
 
     <Spinner
         android:id="@+id/language_spinner"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:text="@string/language"/>
 
 </RelativeLayout>

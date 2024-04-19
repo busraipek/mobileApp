@@ -33,15 +33,20 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import java.util.Locale;
-
-public class SettingsFragment extends Fragment {
+public class SettingsFragment<TranslatorOptions> extends Fragment {
 
     private Spinner languageSpinner;
-    private static final String PREF_NAME = "LanguagePref";
+    private static final String LANG_NAME = "LanguagePref";
     private static final String LANGUAGE_KEY = "languageKey";
+
+    private Switch themeSwitch;
+    private SharedPreferences sharedPreferences;
+    private static final String PREF_NAME = "ThemePref";
+    private static final String THEME_KEY = "themeKey";
 
     @Nullable
     @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
 
@@ -51,32 +56,68 @@ public class SettingsFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
 
-        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        String selectedLanguage = sharedPreferences.getString(LANGUAGE_KEY, "en"); // Varsayılan dil İngilizce
+        themeSwitch = rootView.findViewById(R.id.theme_switch);
+        sharedPreferences = requireActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
 
-        // Kaydedilmiş dil tercihini kontrol et ve spinner'ı buna göre ayarla
-        int languagePosition = adapter.getPosition(selectedLanguage);
-        languageSpinner.setSelection(languagePosition);
+        // Kaydedilmiş tema tercihini kontrol et ve switch'in durumunu buna göre ayarla
+        boolean isDarkMode = sharedPreferences.getBoolean(THEME_KEY, false);
+        themeSwitch.setChecked(isDarkMode);
 
-        // Spinner'ın seçim değişikliklerini dinleyin ve dil değiştirme fonksiyonunu çağırın
+
+        // Switch'in durumunu dinleyin ve tema modunu değiştirin
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Kullanıcının tercihini sakla
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(THEME_KEY, isChecked);
+                editor.apply();
+
+                // Tema modunu değiştir
+                if (isChecked) {
+                    // Kullanıcı karanlık tema istediğinde, karanlık moda geçin
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    // Kullanıcı karanlık tema istemediğinde, aydınlık moda geçin
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
+
+
+        // Kaydedilmiş dil tercihini kontrol et ve Spinner'ı buna göre ayarla
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
+        String selectedLanguage = sharedPreferences.getString(LANGUAGE_KEY, "");
+        if (!selectedLanguage.isEmpty()) {
+            int position = adapter.getPosition(selectedLanguage);
+            if (position != -1) {
+                languageSpinner.setSelection(position);
+            }
+        }
+
+        // Spinner'daki dil seçimi değiştiğinde işlemleri yap
         languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedLanguage = parent.getItemAtPosition(position).toString();
-                changeLanguage(selectedLanguage); // Seçilen dile göre dil değiştirme işlemi
+                String language = parent.getItemAtPosition(position).toString();
+                if (language.equalsIgnoreCase("English")) {
+                    changeLanguage("en");
+                } else if (language.equalsIgnoreCase("Türkçe")) {
+                    changeLanguage("tr");
+                }
+                // Diğer dil seçenekleri buraya eklenmeli
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Burada bir şey yapmanıza gerek yok
+                // Hiçbir şey yapılmaz
             }
         });
 
         return rootView;
     }
-
     private void changeLanguage(String languageCode) {
-        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(LANGUAGE_KEY, languageCode);
         editor.apply();
@@ -89,7 +130,5 @@ public class SettingsFragment extends Fragment {
         config.locale = locale;
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
 
-        // Aktiviteyi yeniden başlatın veya ekranı güncelleyin
-         // Örneğin, mevcut aktiviteyi yeniden başlatmak için
     }
 }
