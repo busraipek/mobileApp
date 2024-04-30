@@ -16,6 +16,34 @@
     <string name="random">Karışık</string>
     <string name="kategori">Kategori</string>
     <string name="settings">Ayarlar</string>
+    <string name="birth">Doğum Günü</string>
+    <string name="cool">Havalı</string>
+    <string name="beauty">Güzellik</string>
+    <string name="change">Değişim</string>
+    <string name="death">Ölüm</string>
+    <string name="love">Aşk</string>
+    <string name="alone">Yalnızlık</string>
+    <string name="anger">Öfke</string>
+    <string name="best">En İyi</string>
+    <string name="courage">Cesaret</string>
+    <string name="dreams">Hayaller</string>
+    <string name="experiance">Deneyim</string>
+    <string name="education">Eğitim</string>
+    <string name="equality">Eşitlik</string>
+    <string name="failure">Başarısızlık</string>
+    <string name="faith">Kader</string>
+    <string name="family">Aile</string>
+    <string name="fear">Korku</string>
+    <string name="life">Hayat</string>
+
+    <!-- errors -->
+    <string name="quotations">Alıntılar Getirilemedi</string>
+    <string name="quotefav">Söz favorilere eklendi.</string>
+    <string name="quotefavex">Söz favorilerden kaldırıldı.</string>
+    <string name="remove">Aşağıdaki Alıntıyı Silmek istediğinize emin misiniz?</string>
+    <string name="delete">Alıntı silindi</string>
+    <string name="iptal">İptal</string>
+    <string name="sil">Sil</string>
 
 
 </resources>

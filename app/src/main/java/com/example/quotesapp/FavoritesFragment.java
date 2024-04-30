@@ -93,15 +93,15 @@ public class FavoritesFragment extends Fragment {
     private void showDeleteDialog(final int position) {
         String quote = favoriteQuotes.get(position);
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(requireContext());
-        builder.setTitle("Aşağıdaki Alıntıyı Silmek istediğinize emin misiniz?")
+        builder.setTitle(getString(R.string.remove))
                 .setMessage(quote)
-                .setPositiveButton("Sil", (dialog, which) -> {
+                .setPositiveButton(getString(R.string.sil), (dialog, which) -> {
                     String deletedQuote = favoriteQuotes.remove(position);
                     adapter.notifyDataSetChanged();
                     removeFromFavorites(deletedQuote);
-                    Toast.makeText(requireContext(), "Alıntı silindi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getString(R.string.delete), Toast.LENGTH_SHORT).show();
                 })
-                .setNegativeButton("İptal", null)
+                .setNegativeButton(getString(R.string.iptal), null)
                 .create()
                 .show();
     }

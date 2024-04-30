@@ -20,8 +20,10 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch"
+        android:text="English-Türkçe"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"/>
+        android:layout_marginTop="110dp"
+        android:thumbTint="@color/button_color"
+        android:trackTint="@color/background_color" />
 
 </RelativeLayout>

@@ -48,7 +48,6 @@ public class QuotesFragment extends Fragment {
 
         // Günün sözünü çekme işlemi
         fetchQuoteOfTheDay();
-
         // "Next Quote" butonuna tıklama olayı ekleme
         btnNextQuote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +116,7 @@ public class QuotesFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Hata durumunda işleme geç
-                        quoteTextView.setText("Hata: Alıntı getirilemedi.");
+                        quoteTextView.setText(getString(R.string.quotations));
                     }
                 }) {
             @Override
@@ -135,12 +134,12 @@ public class QuotesFragment extends Fragment {
     private void addToFavorites() {
         String quote = quoteTextView.getText().toString() + "  \n" + authorTextView.getText().toString();
         FavoritesFragment.addToFavorites(quote);
-        Toast.makeText(getActivity(), "Söz favorilere eklendi.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getString(R.string.quotefav), Toast.LENGTH_SHORT).show();
     }
 
     private void removeFromFavorites() {
         String quote = quoteTextView.getText().toString() + "  \n" + authorTextView.getText().toString();
         FavoritesFragment.removeFromFavorites(quote);
-        Toast.makeText(getActivity(), "Söz favorilerden kaldırıldı.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getString(R.string.delete), Toast.LENGTH_SHORT).show();
     }
 }

@@ -2,6 +2,7 @@ package com.example.quotesapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -17,6 +18,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -29,6 +32,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences lsharedPreferences = getSharedPreferences("LanguagePref", Context.MODE_PRIVATE);
+        String languageValue = lsharedPreferences.getString("languageKey", "false"); // Varsayılan olarak "false" değeri al
+        boolean isTurkish = Boolean.parseBoolean(languageValue);
+
+        Locale locale;
+
+        if (isTurkish) {
+            locale = new Locale("tr");
+            Locale.setDefault(locale);
+        } else {
+            locale = new Locale("en");
+            Locale.setDefault(locale);
+        }
+
+        Configuration config = getResources().getConfiguration();
+        config.setLocale(locale);
+
+// Güncellenmiş Configuration objesini updateConfiguration metoduyla uygula
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         startFavoritesFragment();
 
+
         // Tema tercihini kontrol et ve uygun temayı ayarla
         SharedPreferences sharedPreferences = getSharedPreferences("ThemePref", Context.MODE_PRIVATE);
         boolean isDarkMode = sharedPreferences.getBoolean("themeKey", false);
@@ -73,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
+
     }
 
     private void displaySelectedScreen(int itemId) {
@@ -101,12 +127,6 @@ public class MainActivity extends AppCompatActivity {
     private void startFavoritesFragment() {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(new FavoritesFragment(), "favorites");
-        transaction.commit();
-    }
-
-    private void startSettingsFragment() {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(new SettingsFragment(), "settings");
         transaction.commit();
     }
 

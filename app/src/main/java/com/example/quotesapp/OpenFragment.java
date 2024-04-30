@@ -134,7 +134,7 @@ public class OpenFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Hata durumunda işleme geç
-                        quoteTextView.setText("Hata: Alıntı getirilemedi.");
+                        quoteTextView.setText(getString(R.string.quotations));
                     }
                 });
 

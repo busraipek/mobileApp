@@ -21,7 +21,6 @@ public class SettingsFragment extends Fragment {
     private static final String LANG_NAME = "LanguagePref";
     private static final String LANGUAGE_KEY = "languageKey";
     private SharedPreferences lsharedPreferences;
-
     private Switch themeSwitch;
     private SharedPreferences sharedPreferences;
     private static final String PREF_NAME = "ThemePref";
@@ -32,19 +31,6 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_settings, container, false);
-
-        themeSwitch = rootView.findViewById(R.id.theme_switch);
-        sharedPreferences = requireActivity().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        boolean isDarkMode = sharedPreferences.getBoolean(THEME_KEY, false);
-        themeSwitch.setChecked(isDarkMode);
-
-        themeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(THEME_KEY, isChecked);
-            editor.apply();
-
-            AppCompatDelegate.setDefaultNightMode(isChecked ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
-        });
 
         initThemeSwitch(rootView);
         initLanguageSwitch(rootView);
@@ -70,39 +56,29 @@ public class SettingsFragment extends Fragment {
     private void initLanguageSwitch(View rootView) {
         languageSwitch = rootView.findViewById(R.id.switch1);
         lsharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
-        String langPref = getLanguagePreference(); // Dil tercihini al
-        boolean isTurkish = langPref.equals("tr");
+        String languageValue = lsharedPreferences.getString(LANGUAGE_KEY, "false"); // String olarak veriyi al
+        boolean isTurkish = Boolean.parseBoolean(languageValue); // String'i Boolean'a dönüştür
+
         languageSwitch.setChecked(isTurkish);
 
         languageSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            saveLanguagePreference(isChecked ? "tr" : "en"); // Dil tercihini kaydet
-            setAppLanguage(isChecked ? "tr" : "en"); // Uygulama dilini ayarla
+            SharedPreferences.Editor editor = lsharedPreferences.edit();
+            editor.putString(LANGUAGE_KEY, String.valueOf(isChecked)); // Boolean değeri String olarak kaydet
+
+
+            // Set language based on isChecked value
+            if (isChecked) {
+                setLanguage("tr"); // Set Turkish language
+            } else {
+                setLanguage("en"); // Set English language
+            }
+            editor.apply();
             restartActivity();
         });
     }
 
-    private void saveLanguagePreference(String languageCode) {
-        lsharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = lsharedPreferences.edit();
-        editor.putString(LANGUAGE_KEY, languageCode);
-        editor.apply();
-    }
 
-    // Dil tercihini alıp işleme
-    private String getLanguagePreference() {
-        lsharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
-        // Varsayılan olarak en son kullanılan dil olan değeri döndür
-        return lsharedPreferences.getString(LANGUAGE_KEY, getLastUsedLanguage());
-    }
-
-    private String getLastUsedLanguage() {
-        // Burada en son kullanılan dilin bilgisini kaydettiğiniz bir şekilde alın
-        // Örneğin, başka bir SharedPreferences anahtarını kullanarak
-        lsharedPreferences = requireActivity().getSharedPreferences(LANG_NAME, Context.MODE_PRIVATE);
-        return lsharedPreferences.getString("LastUsedLanguage", "tr");
-    }
-
-    private void setAppLanguage(String languageCode) {
+    private void setLanguage(String languageCode) {
         // Buradaki dil ayarı kodu ile uygulama dilini ayarlayın
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);

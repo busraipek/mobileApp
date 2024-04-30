@@ -115,9 +115,9 @@ public class Categorical_QuotesFragment extends Fragment {
 
         return rootView;
     }
-    private int getCategoryImageId(String categoryName) {
+private int getCategoryImageId(String categoryName) {
         switch (categoryName) {
-            case "BIRTHDAY":
+            case "birthday":
                 return R.drawable.c_birthday;
             case "cool":
                 return R.drawable.c_cool;
@@ -139,7 +139,7 @@ public class Categorical_QuotesFragment extends Fragment {
                 return R.drawable.c_courage;
             case "dreams":
                 return R.drawable.c_dreams;
-            case "experiance":
+            case "experience":
                 return R.drawable.c_experience;
             case "education":
                 return R.drawable.c_education;
@@ -148,19 +148,17 @@ public class Categorical_QuotesFragment extends Fragment {
             case "failure":
                 return R.drawable.c_failure;
             case "faith":
-                return R.drawable.c_failure;
+                return R.drawable.c_failure; // Bu satırda bir hata olabilir, "faith" yerine "faith" olması gerekebilir
             case "family":
                 return R.drawable.c_family;
             case "fear":
                 return R.drawable.c_fear;
             case "life":
                 return R.drawable.c_life;
-            // Diğer kategoriler için case'ler ekle
             default:
                 return R.drawable.love; // Varsayılan resim
         }
     }
-
     private void fetchQuotes() {
         // API url ve anahtar
         String url = "https://api.api-ninjas.com/v1/quotes?category="+selectedCategoryName;
@@ -200,7 +198,7 @@ public class Categorical_QuotesFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // Hata durumunda kullanıcıyı bilgilendirme
-                        Toast.makeText(getActivity(), "Alıntılar getirilemedi.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), getString(R.string.quotations), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             // İsteğe başlık ekleme (API anahtarı)
@@ -251,13 +249,13 @@ public class Categorical_QuotesFragment extends Fragment {
     private void addToFavorites() {
         String quote = quotesTextView.getText().toString() + "  \n" + authorTextView.getText().toString();
         FavoritesFragment.addToFavorites(quote);
-        Toast.makeText(getActivity(), "Söz favorilere eklendi.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getString(R.string.quotefav), Toast.LENGTH_SHORT).show();
     }
 
     private void removeFromFavorites() {
         String quote = quotesTextView.getText().toString() + "  \n" + authorTextView.getText().toString();
         FavoritesFragment.removeFromFavorites(quote);
-        Toast.makeText(getActivity(), "Söz favorilerden kaldırıldı.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), getString(R.string.quotefavex), Toast.LENGTH_SHORT).show();
     }
 
     private void checkFavorite(final String quote) {
