@@ -1,7 +1,6 @@
 <!-- list_item.xml -->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/textViewListItem"
-    android:text="@string/app_name"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="20sp"

@@ -12,18 +12,16 @@
         android:layout_marginTop="20dp"
         android:text="@string/theme"
         android:textSize="24sp"
-        android:thumbTint="@color/button_color"
-        android:trackTint="@color/background_color" />
+        android:thumbTint="@color/button_color"/>
 
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="English-Türkçe"
+        android:text="@string/dil"
         android:layout_marginStart="20dp"
         android:layout_marginTop="110dp"
-        android:thumbTint="@color/button_color"
-        android:trackTint="@color/background_color" />
+        android:thumbTint="@color/button_color" />
 
 </RelativeLayout>

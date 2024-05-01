@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
 
-            android:text="Quotes of Day"
+            android:text="@string/day"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="@color/text_color"
             android:textSize="30sp"

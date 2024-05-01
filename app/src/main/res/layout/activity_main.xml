@@ -23,6 +23,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@color/c_item_color"
+            app:title="@string/app_name"
             app:navigationIcon="@drawable/id_menu" />
 
     </FrameLayout>
